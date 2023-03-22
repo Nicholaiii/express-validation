@@ -12,9 +12,9 @@ express-validation
 
 `express-validation` is an express middleware that validates a request and returns a response with errors; if any of the configured validation rules fail.
 
-We use [joi](https://github.com/hapijs/joi/tree/master) to define validation rules. We have a hard dependency on Joi in order to avoid compatibility issues with Joi releases.  We are using snyk, which should help with this process.
+We use [joi](https://github.com/hapijs/joi/tree/master) to define validation rules. This fork uses Joi as a peer dependency.
 
-Currently support Joi v17.x.x
+Currently supports Joi v17
 
 ## Parameter types
 We support validating the following parameter types:
@@ -158,10 +158,10 @@ Default: `{ context: false, statusCode: 400, keyByField: false }`
 
 Options, used by `express-validation`:
   - `context`, grants Joi access to the request object. This allows you to:
-      - reference other parts of the request in your validations, see [Joi.ref](https://hapi.dev/family/joi/api/?v=17.1.0#refkey-options) 
+      - reference other parts of the request in your validations, see [Joi.ref](https://hapi.dev/family/joi/api/?v=17.1.0#refkey-options)
       - specify default values, see [Joi.default](https://hapi.dev/module/joi/api/#anydefaultvalue)
       - will also cast values, e.g. strings to integer
-    - default { context: false } 
+    - default { context: false }
   - `statusCode`, defaults to `400`, this will also set the error message via nodes [status codes](https://nodejs.org/api/http.html#http_http_status_codes)
     - default { statusCode: 400 }
   - `keyByField`, flattens the error details object to a list of messages, keyed by field name
